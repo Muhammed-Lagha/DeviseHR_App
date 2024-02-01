@@ -3,6 +3,7 @@ import { ref } from 'vue'
 
 import SearchIcon from '@/components/icons/TopBar/Search.vue'
 import SearchModal from '@/components/Utils/ModalSearch.vue'
+import CreateButton from '@/components/Utils/CreateButten.vue'
 import Notifications from '@/components/Utils/DropdownNotifications.vue'
 import Help from '@/components/Utils/DropdownHelp.vue'
 import ThemeToggle from '@/components/Utils/ThemeToggle.vue'
@@ -45,7 +46,7 @@ const searchModalOpen = ref(false)
         <div class="flex items-center space-x-3">
           <div>
             <button
-              class="w-8 h-8 flex items-center justify-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600/80 rounded-full ml-3"
+              class="w-8 h-8 flex items-center justify-center p-1 text-gray-600 border-[1px] border-gray-200 rounded-md focus:outline-none bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600/80 dark:border-gray-500 dark:hover:border-gray-200 ml-3"
               :class="{ 'bg-slate-200': searchModalOpen }"
               @click.stop="searchModalOpen = true"
               aria-controls="search-modal"
@@ -61,11 +62,19 @@ const searchModalOpen = ref(false)
               @close-modal="searchModalOpen = false"
             />
           </div>
+          <!-- Divider -->
+          <hr class="w-px h-6 bg-slate-200 dark:bg-slate-700 border-none" />
+          <!-- Create New Button -->
+          <CreateButton />
+          <!-- Notifications -->
           <Notifications align="right" />
+          <!-- Help Menu -->
           <Help align="right" />
+          <!-- Theme Toggle -->
           <ThemeToggle />
           <!-- Divider -->
           <hr class="w-px h-6 bg-slate-200 dark:bg-slate-700 border-none" />
+          <!-- Profile dropdown -->
           <UserMenu align="right" />
         </div>
       </div>

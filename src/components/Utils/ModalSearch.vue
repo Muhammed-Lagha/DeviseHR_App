@@ -1,6 +1,10 @@
 <script lang="ts" setup>
 import { ref, nextTick, onMounted, onUnmounted, watch } from 'vue'
 import SearchIcon from '@/components/icons/TopBar/Search.vue'
+// import Calendar from '@/components/icons/SideBar/CalendarIcon.vue'
+// import shiftIcon from '@/components/icons/OthersIcons/ShiftIcon.vue'
+// import HomeIcon from '@/components/icons/SideBar/HomeIcon.vue'
+// import page from '@/components/icons/OthersIcons/PageIcon.vue'
 
 const props = defineProps({
   id: {
@@ -80,143 +84,78 @@ watch(
     <div
       v-show="modalOpen"
       :id="id"
-      class="fixed inset-0 z-50 overflow-hidden flex items-start top-20 mb-4 justify-center px-4 sm:px-6"
+      class="fixed inset-0 z-50 overflow-hidden flex items-start justify-start left-40 top-2 mb-4 px-4 sm:px-6"
       role="dialog"
       aria-modal="true"
     >
       <div
         ref="modalContent"
-        class="bg-gray-100 border border-transparent overflow-auto max-w-2xl w-full max-h-full rounded shadow-lg"
+        class="bg-gray-100 dark:bg-slate-800 border-none overflow-auto max-w-2xl w-full max-h-full rounded"
       >
         <!-- Search form -->
-        <form class="border-b border-slate-200">
+        <form @submit.prevent="$emit('close-modal')">
           <div class="relative">
             <label :for="searchId" class="sr-only">Search</label>
             <input
               :id="searchId"
-              class="w-full dark:text-slate-300 bg-gray-100 border-0 focus:ring-transparent placeholder-slate-400 appearance-none py-3 pl-10 pr-4"
+              class="w-full border-none dark:text-slate-300 bg-gray-100 dark:bg-slate-800 placeholder-slate-400 dark:placeholder-slate-500 appearance-none py-3 pl-10 pr-4"
               type="text"
               placeholder="Search DeviseHR ..."
               ref="searchInput"
               @keyup.enter="$emit('close-modal')"
             />
             <button class="absolute inset-0 right-auto group" type="submit" aria-label="Search">
-              <SearchIcon class="w-4 h-4" />
+              <SearchIcon class="w-4 h-4 text-slate-400 group-hover:text-slate-500 ml-3" />
             </button>
           </div>
         </form>
-        <div class="py-4 px-2">
-          <!-- Recent searches -->
+        <!-- <div class="py-4 px-2">
+          
           <div class="mb-3 last:mb-0">
-            <div class="text-xs font-semibold text-slate-400 uppercase px-2 mb-2">
-              Recent searches
-            </div>
+            <div class="text-xs font-semibold text-slate-400 uppercase px-2 mb-2">Jump to</div>
             <ul class="text-sm">
               <li>
                 <router-link
-                  class="flex items-center p-2 text-slate-800 hover:text-white hover:bg-green-500 rounded group"
+                  class="flex items-center p-2 text-slate-800 dark:text-slate-200 hover:bg-gray-200 dark:hover:bg-gray-500 rounded group"
                   to="#0"
                   @click="$emit('close-modal')"
                 >
-                  <svg
-                    class="w-4 h-4 fill-current text-slate-400 group-hover:text-white group-hover:text-opacity-50 shrink-0 mr-3"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M15.707 14.293v.001a1 1 0 01-1.414 1.414L11.185 12.6A6.935 6.935 0 017 14a7.016 7.016 0 01-5.173-2.308l-1.537 1.3L0 8l4.873 1.12-1.521 1.285a4.971 4.971 0 008.59-2.835l1.979.454a6.971 6.971 0 01-1.321 3.157l3.107 3.112zM14 6L9.127 4.88l1.521-1.28a4.971 4.971 0 00-8.59 2.83L.084 5.976a6.977 6.977 0 0112.089-3.668l1.537-1.3L14 6z"
-                    />
-                  </svg>
-                  <span>Form Builder - 23 hours on-demand video</span>
+                  <HomeIcon
+                    class="w-4 h-4 fill-current text-slate-800 dark:text-slate-200 hover:bg-gray-200 dark:hover:bg-gray-500 shrink-0 mr-3"
+                  />
+
+                  <span>Home</span>
                 </router-link>
               </li>
               <li>
                 <router-link
-                  class="flex items-center p-2 text-slate-800 hover:text-white hover:bg-green-500 rounded group"
+                  class="flex items-center p-2 text-slate-800 dark:text-slate-200 hover:bg-gray-200 dark:hover:bg-gray-500 rounded group"
                   to="#0"
                   @click="$emit('close-modal')"
                 >
-                  <svg
-                    class="w-4 h-4 fill-current text-slate-400 group-hover:text-white group-hover:text-opacity-50 shrink-0 mr-3"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M15.707 14.293v.001a1 1 0 01-1.414 1.414L11.185 12.6A6.935 6.935 0 017 14a7.016 7.016 0 01-5.173-2.308l-1.537 1.3L0 8l4.873 1.12-1.521 1.285a4.971 4.971 0 008.59-2.835l1.979.454a6.971 6.971 0 01-1.321 3.157l3.107 3.112zM14 6L9.127 4.88l1.521-1.28a4.971 4.971 0 00-8.59 2.83L.084 5.976a6.977 6.977 0 0112.089-3.668l1.537-1.3L14 6z"
-                    />
-                  </svg>
-                  <span>Access Mosaic on mobile and TV</span>
+                  <calendar
+                    class="w-4 h-4 fill-current text-slate-800 dark:text-slate-200 hover:bg-gray-200 dark:hover:bg-gray-500 shrink-0 mr-3"
+                  />
+
+                  <span>Calendar</span>
                 </router-link>
               </li>
               <li>
                 <router-link
-                  class="flex items-center p-2 text-slate-800 hover:text-white hover:bg-green-500 rounded group"
+                  class="flex items-center p-2 text-slate-800 dark:text-slate-200 hover:bg-gray-200 dark:hover:bg-gray-500 rounded group"
                   to="#0"
                   @click="$emit('close-modal')"
                 >
-                  <svg
-                    class="w-4 h-4 fill-current text-slate-400 group-hover:text-white group-hover:text-opacity-50 shrink-0 mr-3"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M15.707 14.293v.001a1 1 0 01-1.414 1.414L11.185 12.6A6.935 6.935 0 017 14a7.016 7.016 0 01-5.173-2.308l-1.537 1.3L0 8l4.873 1.12-1.521 1.285a4.971 4.971 0 008.59-2.835l1.979.454a6.971 6.971 0 01-1.321 3.157l3.107 3.112zM14 6L9.127 4.88l1.521-1.28a4.971 4.971 0 00-8.59 2.83L.084 5.976a6.977 6.977 0 0112.089-3.668l1.537-1.3L14 6z"
-                    />
-                  </svg>
-                  <span>Product Update - Q4 2021</span>
-                </router-link>
-              </li>
-              <li>
-                <router-link
-                  class="flex items-center p-2 text-slate-800 hover:text-white hover:bg-green-500 rounded group"
-                  to="#0"
-                  @click="$emit('close-modal')"
-                >
-                  <svg
-                    class="w-4 h-4 fill-current text-slate-400 group-hover:text-white group-hover:text-opacity-50 shrink-0 mr-3"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M15.707 14.293v.001a1 1 0 01-1.414 1.414L11.185 12.6A6.935 6.935 0 017 14a7.016 7.016 0 01-5.173-2.308l-1.537 1.3L0 8l4.873 1.12-1.521 1.285a4.971 4.971 0 008.59-2.835l1.979.454a6.971 6.971 0 01-1.321 3.157l3.107 3.112zM14 6L9.127 4.88l1.521-1.28a4.971 4.971 0 00-8.59 2.83L.084 5.976a6.977 6.977 0 0112.089-3.668l1.537-1.3L14 6z"
-                    />
-                  </svg>
-                  <span>Master Digital Marketing Strategy course</span>
-                </router-link>
-              </li>
-              <li>
-                <router-link
-                  class="flex items-center p-2 text-slate-800 hover:text-white hover:bg-green-500 rounded group"
-                  to="#0"
-                  @click="$emit('close-modal')"
-                >
-                  <svg
-                    class="w-4 h-4 fill-current text-slate-400 group-hover:text-white group-hover:text-opacity-50 shrink-0 mr-3"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M15.707 14.293v.001a1 1 0 01-1.414 1.414L11.185 12.6A6.935 6.935 0 017 14a7.016 7.016 0 01-5.173-2.308l-1.537 1.3L0 8l4.873 1.12-1.521 1.285a4.971 4.971 0 008.59-2.835l1.979.454a6.971 6.971 0 01-1.321 3.157l3.107 3.112zM14 6L9.127 4.88l1.521-1.28a4.971 4.971 0 00-8.59 2.83L.084 5.976a6.977 6.977 0 0112.089-3.668l1.537-1.3L14 6z"
-                    />
-                  </svg>
-                  <span>Dedicated forms for products</span>
-                </router-link>
-              </li>
-              <li>
-                <router-link
-                  class="flex items-center p-2 text-slate-800 hover:text-white hover:bg-green-500 rounded group"
-                  to="#0"
-                  @click="$emit('close-modal')"
-                >
-                  <svg
-                    class="w-4 h-4 fill-current text-slate-400 group-hover:text-white group-hover:text-opacity-50 shrink-0 mr-3"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M15.707 14.293v.001a1 1 0 01-1.414 1.414L11.185 12.6A6.935 6.935 0 017 14a7.016 7.016 0 01-5.173-2.308l-1.537 1.3L0 8l4.873 1.12-1.521 1.285a4.971 4.971 0 008.59-2.835l1.979.454a6.971 6.971 0 01-1.321 3.157l3.107 3.112zM14 6L9.127 4.88l1.521-1.28a4.971 4.971 0 00-8.59 2.83L.084 5.976a6.977 6.977 0 0112.089-3.668l1.537-1.3L14 6z"
-                    />
-                  </svg>
-                  <span>Product Update - Q4 2021</span>
+                  <shiftIcon
+                    class="w-4 h-4 fill-current text-slate-800 dark:text-slate-200 hover:bg-gray-200 dark:hover:bg-gray-500 shrink-0 mr-3"
+                  />
+
+                  <span>Rota</span>
                 </router-link>
               </li>
             </ul>
           </div>
-          <!-- Recent pages -->
+          
           <div class="mb-3 last:mb-0">
             <div class="text-xs font-semibold text-slate-400 uppercase px-2 mb-2">Recent pages</div>
             <ul class="text-sm">
@@ -226,18 +165,13 @@ watch(
                   to="#0"
                   @click="$emit('close-modal')"
                 >
-                  <svg
+                  <page
                     class="w-4 h-4 fill-current text-slate-400 group-hover:text-white group-hover:text-opacity-50 shrink-0 mr-3"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M14 0H2c-.6 0-1 .4-1 1v14c0 .6.4 1 1 1h8l5-5V1c0-.6-.4-1-1-1zM3 2h10v8H9v4H3V2z"
-                    />
-                  </svg>
+                  />
                   <span
-                    ><span class="font-medium">Messages</span> -
-                    <span class="text-slate-600 group-hover:text-white"
-                      >Conversation / … / Mike Mills</span
+                    ><span class="font-medium">Add Employee</span> -
+                    <span class="text-slate-600 group-hover:text-white">
+                      Add New Employee</span
                     ></span
                   >
                 </router-link>
@@ -248,25 +182,20 @@ watch(
                   to="#0"
                   @click="$emit('close-modal')"
                 >
-                  <svg
+                  <page
                     class="w-4 h-4 fill-current text-slate-400 group-hover:text-white group-hover:text-opacity-50 shrink-0 mr-3"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M14 0H2c-.6 0-1 .4-1 1v14c0 .6.4 1 1 1h8l5-5V1c0-.6-.4-1-1-1zM3 2h10v8H9v4H3V2z"
-                    />
-                  </svg>
+                  />
                   <span
-                    ><span class="font-medium">Messages</span> -
+                    ><span class="font-medium">Roles</span> -
                     <span class="text-slate-600 group-hover:text-white"
-                      >Conversation / … / Eva Patrick</span
+                      >Edit or Manage Roles</span
                     ></span
                   >
                 </router-link>
               </li>
             </ul>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </transition>
