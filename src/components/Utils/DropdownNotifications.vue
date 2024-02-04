@@ -37,7 +37,7 @@ onUnmounted(() => {
   <div class="relative inline-flex">
     <button
       ref="trigger"
-      class="w-8 h-8 flex items-center justify-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600/80 rounded-full"
+      class="w-8 h-8 flex items-center justify-center p-1 text-gray-600 border-[1px] border-gray-200 rounded-md focus:outline-none bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600/80 dark:border-gray-500 dark:hover:border-gray-200"
       :class="{ 'bg-slate-200': dropdownOpen }"
       aria-haspopup="true"
       @click.prevent="dropdownOpen = !dropdownOpen"
