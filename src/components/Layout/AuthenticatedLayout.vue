@@ -19,7 +19,7 @@ const locales = {
     <div class="min-h-screen flex-1 flex flex-col overflow-hidden">
       <Header :sidebarOpen="isOpen" @toggle-sidebar="isOpen = !isOpen" />
       <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 dark:bg-slate-800">
-        <div class="container mx-auto px-6 py-8">
+        <div class="container bg-white dark:bg-slate-800 mx-auto px-6 py-4">
           <slot />
         </div>
       </main>
