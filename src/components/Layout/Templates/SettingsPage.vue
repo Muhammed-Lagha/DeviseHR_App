@@ -4,78 +4,50 @@ const selectedTab = ref(1)
 </script>
 
 <template>
-  <div class="py-4 w-full max-w-7xl min-w-80 flex m-6 rounded-xl bg-white dark:bg-slate-800">
-    <ul
-      class="relative w-fit flex flex-col border-r border-#f0f0f0 dark:border-gray-500 list-none pr-8 gap-2"
-    >
-      <li>
-        <button
-          @click="() => (selectedTab = 1)"
-          class="relative flex w-36 cursor-pointer text-sm font-semibold text-[#9D9D9D] dark:text-white text-left rounded-lg justify-start items-center p-3 gap-2 transition-all"
-          :class="{
-            'text-[#fff] dark:text-[#3e3e3e] bg-[#3e3e3e] dark:bg-[#f0f0f0]': selectedTab === 1,
-            'hover:text-[#fff] dark:hover:text-[#3e3e3e] hover:bg-[#3e3e3e] dark:hover:bg-[#f0f0f0]':
-              selectedTab !== 1
-          }"
-        >
-          <svg
-            class="w-10 h-10 stroke-[#9d9d9d] hover:text-white dark:text-white"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+  <div class="w-full bg-white dark:bg-slate-800">
+    <!-- Tabs -->
+    <div class="pb-2">
+      <ul
+        class="p-0 m-0 flex list-none tablist text-neutral-700 transition-colors self-end overflow-x-hidden border-b border-neutral-400"
+      >
+        <li>
+          <button
+            @click="selectedTab = 1"
+            class="flex py-2 font-sans text-base bg-transparent cursor-pointer lg:shrink-0 lg:basis-auto hover:text-indigo-600 hover:fill-indigo-600 transition-colors min-w-[80px] justify-center px-4"
+            :class="{
+              'border-b-4 border-indigo-500 fill-indigo-500 text-indigo-700 font-semibold ':
+                selectedTab === 1
+            }"
           >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M3 21l18 0"></path>
-            <path d="M3 10l18 0"></path>
-            <path d="M5 6l7 -3l7 3"></path>
-            <path d="M4 10l0 11"></path>
-            <path d="M20 10l0 11"></path>
-            <path d="M8 14l0 3"></path>
-            <path d="M12 14l0 3"></path>
-            <path d="M16 14l0 3"></path>
-          </svg>
-          Company Settings
-        </button>
-      </li>
-      <li>
-        <button
-          @click="() => (selectedTab = 2)"
-          class="relative flex w-full cursor-pointer text-sm font-semibold text-[#9D9D9D] dark:text-white text-left rounded-lg justify-start items-center p-3 gap-2 transition-all"
-          :class="{
-            'text-[#fff] dark:text-[#3e3e3e] bg-[#3e3e3e] dark:bg-[#f0f0f0]': selectedTab === 2,
-            'hover:text-[#fff] dark:hover:text-[#3e3e3e] hover:bg-[#3e3e3e] dark:hover:bg-[#f0f0f0]':
-              selectedTab !== 2
-          }"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-8 h-8 stroke-[#9d9d9d] hover:text-white dark:text-white"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            <div class="flex items-center space-x-2"><span>Company Settings</span></div>
+          </button>
+        </li>
+        <li>
+          <button
+            @click="selectedTab = 2"
+            class="flex py-2 font-sans text-base bg-transparent cursor-pointer lg:shrink-0 lg:basis-auto hover:text-indigo-600 hover:fill-indigo-600 transition-colors min-w-[80px] justify-center px-4"
+            :class="{
+              'border-b-4 border-indigo-500 fill-indigo-500 text-indigo-700 font-semibold ':
+                selectedTab === 2
+            }"
           >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M3 21v-4a4 4 0 1 1 4 4h-4"></path>
-            <path d="M21 3a16 16 0 0 0 -12.8 10.2"></path>
-            <path d="M21 3a16 16 0 0 1 -10.2 12.8"></path>
-            <path d="M10.6 9a9 9 0 0 1 4.4 4.4"></path>
-          </svg>
-          User Settings
-        </button>
-      </li>
-    </ul>
+            <div class="flex items-center space-x-2"><span>Users Settings</span></div>
+          </button>
+        </li>
+        <li>
+          <button
+            @click="selectedTab = 3"
+            class="flex py-2 font-sans text-base bg-transparent cursor-pointer lg:shrink-0 lg:basis-auto hover:text-indigo-600 hover:fill-indigo-600 transition-colors min-w-[80px] justify-center px-4"
+          >
+            <div class="flex items-center space-x-2"><span>Permissions</span></div>
+          </button>
+        </li>
+      </ul>
+    </div>
     <div class="overflow-x-hidden overflow-y-auto h-fit transition-all py-0 px-4">
       <section
         id="tab1-content"
-        class="p-5 mb-2 rounded-lg shadow-md border-2 scroll-m-56 md:scroll-m-20 border-brand-500 text-sm min-h-fit min-w-fit overflow-x-auto transition-all"
+        class="p-5 mb-2 scroll-m-56 md:scroll-m-20 border-brand-500 text-sm min-h-fit min-w-fit overflow-x-auto transition-all"
         v-show="selectedTab === 1"
       >
         <h2 class="flex justify-center text-xl font-semibold">Company settings</h2>
@@ -124,7 +96,7 @@ const selectedTab = ref(1)
         </div>
       </section>
       <section
-        class="p-5 mb-2 rounded-lg shadow-md border-2 scroll-m-56 md:scroll-m-20 border-brand-500 text-sm min-h-fit min-w-fit overflow-x-auto transition-all"
+        class="mb-2 scroll-m-56 md:scroll-m-20 border-brand-500 text-sm min-h-fit min-w-fit overflow-x-auto transition-all"
         id="#tab2"
         v-show="selectedTab === 2"
       >
@@ -146,56 +118,17 @@ const selectedTab = ref(1)
               <div class="justify-around md:flex basis-1/2">
                 <div>
                   <div class="flex">
-                    <div class="mr-2 w-36">
-                      <label
-                        data-testid="label radio position left"
-                        class="flex border rounded-lg p-4 transition-colors ease-in-out cursor-pointer bg-primary-50 border-primary-400"
-                        ><div>
-                          <input
-                            type="radio"
-                            class="appearance-none"
-                            data-e2e="Enable"
-                            value="true"
-                          /><span
-                            class="relative flex-shrink-0 inline-flex items-center justify-center w-6 h-6 p-1.5 mr-4"
-                            ><span
-                              class="absolute w-[24px] h-full border rounded-full border-primary-400 cursor-pointer bg-transparent"
-                            ></span
-                            ><span
-                              class="relative w-[24px] h-full transition-colors ease-in-out rounded-full bg-primary-400"
-                            ></span
-                          ></span>
+                    <div class="mr-3w-36">
+                      <div class="flex">
+                        <div class="mr-3 flex items-end">
+                          <label class="relative cursor-pointer">
+                            <input type="checkbox" class="sr-only peer" />
+                            <div
+                              class="w-[53px] h-7 flex items-center bg-gray-300 rounded-full text-[9px] peer-checked:text-[#007bff] text-gray-300 font-extrabold after:flex after:items-center after:justify-center peer after:content-['Off'] peer-checked:after:content-['On'] peer-checked:after:translate-x-full after:absolute after:left-[2px] peer-checked:after:border-white after:bg-white after:border after:border-gray-300 after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-[#007bff]"
+                            ></div>
+                          </label>
                         </div>
-                        <div class="flex flex-col">
-                          <span class="text-base font-semibold text-neutral-700">Enable</span>
-                        </div></label
-                      >
-                    </div>
-                    <div class="w-36">
-                      <label
-                        data-testid="label radio position left"
-                        class="flex border rounded-lg p-4 transition-colors ease-in-out cursor-pointer bg-white border-neutral-300 hover:border-neutral-400"
-                        ><div>
-                          <input
-                            type="radio"
-                            class="appearance-none"
-                            data-e2e="Disable"
-                            value="true"
-                            checked=""
-                          /><span
-                            class="relative flex-shrink-0 inline-flex items-center justify-center w-6 h-6 p-1.5 mr-4"
-                            ><span
-                              class="absolute w-[24px] h-full border rounded-full border-primary-400 cursor-pointer bg-transparent"
-                            ></span
-                            ><span
-                              class="relative w-[24px] h-full transition-colors ease-in-out rounded-full bg-transparent"
-                            ></span
-                          ></span>
-                        </div>
-                        <div class="flex flex-col">
-                          <span class="text-base font-semibold text-neutral-700">Disable</span>
-                        </div></label
-                      >
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -236,56 +169,17 @@ const selectedTab = ref(1)
               <div class="justify-around md:flex basis-1/2">
                 <div>
                   <div class="flex">
-                    <div class="mr-2 w-36">
-                      <label
-                        data-testid="label radio position left"
-                        class="flex border rounded-lg p-4 transition-colors ease-in-out cursor-pointer bg-primary-50 border-primary-400"
-                        ><div>
-                          <input
-                            type="radio"
-                            class="appearance-none"
-                            data-e2e="Show"
-                            value="true"
-                            checked=""
-                          /><span
-                            class="relative flex-shrink-0 inline-flex items-center justify-center w-6 h-6 p-1.5 mr-4"
-                            ><span
-                              class="absolute w-[24px] h-full border rounded-full border-primary-400 cursor-pointer bg-transparent"
-                            ></span
-                            ><span
-                              class="relative w-[24px] h-full transition-colors ease-in-out rounded-full bg-primary-400"
-                            ></span
-                          ></span>
+                    <div class="mr-3w-36">
+                      <div class="flex">
+                        <div class="mr-3 flex items-end">
+                          <label class="relative cursor-pointer">
+                            <input type="checkbox" class="sr-only peer" />
+                            <div
+                              class="w-[53px] h-7 flex items-center bg-gray-300 rounded-full text-[9px] peer-checked:text-[#007bff] text-gray-300 font-extrabold after:flex after:items-center after:justify-center peer after:content-['Off'] peer-checked:after:content-['On'] peer-checked:after:translate-x-full after:absolute after:left-[2px] peer-checked:after:border-white after:bg-white after:border after:border-gray-300 after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-[#007bff]"
+                            ></div>
+                          </label>
                         </div>
-                        <div class="flex flex-col">
-                          <span class="text-base font-semibold text-neutral-700">Show</span>
-                        </div></label
-                      >
-                    </div>
-                    <div class="w-36">
-                      <label
-                        data-testid="label radio position left"
-                        class="flex border rounded-lg p-4 transition-colors ease-in-out cursor-pointer bg-white border-neutral-300 hover:border-neutral-400"
-                        ><div>
-                          <input
-                            type="radio"
-                            class="appearance-none"
-                            data-e2e="Hide"
-                            value="true"
-                          /><span
-                            class="relative flex-shrink-0 inline-flex items-center justify-center w-6 h-6 p-1.5 mr-4"
-                            ><span
-                              class="absolute w-[24px] h-full border rounded-full border-primary-400 cursor-pointer bg-transparent"
-                            ></span
-                            ><span
-                              class="relative w-[24px] h-full transition-colors ease-in-out rounded-full bg-transparent"
-                            ></span
-                          ></span>
-                        </div>
-                        <div class="flex flex-col">
-                          <span class="text-base font-semibold text-neutral-700">Hide</span>
-                        </div></label
-                      >
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -310,56 +204,17 @@ const selectedTab = ref(1)
               <div class="justify-around md:flex basis-1/2">
                 <div>
                   <div class="flex">
-                    <div class="mr-2 w-36">
-                      <label
-                        data-testid="label radio position left"
-                        class="flex border rounded-lg p-4 transition-colors ease-in-out cursor-pointer bg-white border-neutral-300 hover:border-neutral-400"
-                        ><div>
-                          <input
-                            type="radio"
-                            class="appearance-none"
-                            data-e2e="Enable"
-                            value="false"
-                          /><span
-                            class="relative flex-shrink-0 inline-flex items-center justify-center w-6 h-6 p-1.5 mr-4"
-                            ><span
-                              class="absolute w-[24px] h-full border rounded-full border-primary-400 cursor-pointer bg-transparent"
-                            ></span
-                            ><span
-                              class="relative w-[24px] h-full transition-colors ease-in-out rounded-full bg-transparent"
-                            ></span
-                          ></span>
+                    <div class="mr-3w-36">
+                      <div class="flex">
+                        <div class="mr-3 flex items-end">
+                          <label class="relative cursor-pointer">
+                            <input type="checkbox" class="sr-only peer" />
+                            <div
+                              class="w-[53px] h-7 flex items-center bg-gray-300 rounded-full text-[9px] peer-checked:text-[#007bff] text-gray-300 font-extrabold after:flex after:items-center after:justify-center peer after:content-['Off'] peer-checked:after:content-['On'] peer-checked:after:translate-x-full after:absolute after:left-[2px] peer-checked:after:border-white after:bg-white after:border after:border-gray-300 after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-[#007bff]"
+                            ></div>
+                          </label>
                         </div>
-                        <div class="flex flex-col">
-                          <span class="text-base font-semibold text-neutral-700">Enable</span>
-                        </div></label
-                      >
-                    </div>
-                    <div class="w-36">
-                      <label
-                        data-testid="label radio position left"
-                        class="flex border rounded-lg p-4 transition-colors ease-in-out cursor-pointer bg-primary-50 border-primary-400"
-                        ><div>
-                          <input
-                            type="radio"
-                            class="appearance-none"
-                            data-e2e="Disable"
-                            value="false"
-                            checked=""
-                          /><span
-                            class="relative flex-shrink-0 inline-flex items-center justify-center w-6 h-6 p-1.5 mr-4"
-                            ><span
-                              class="absolute w-[24px] h-full border rounded-full border-primary-400 cursor-pointer bg-transparent"
-                            ></span
-                            ><span
-                              class="relative w-[24px] h-full transition-colors ease-in-out rounded-full bg-primary-400"
-                            ></span
-                          ></span>
-                        </div>
-                        <div class="flex flex-col">
-                          <span class="text-base font-semibold text-neutral-700">Disable</span>
-                        </div></label
-                      >
+                      </div>
                     </div>
                   </div>
                 </div>
