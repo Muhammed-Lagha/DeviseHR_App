@@ -37,8 +37,8 @@ onUnmounted(() => {
   <div class="relative inline-flex">
     <button
       ref="trigger"
-      class="w-8 h-8 flex items-center justify-center p-1 text-gray-600 border-[1px] border-gray-200 rounded-md focus:outline-none bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600/80 dark:border-gray-500 dark:hover:border-gray-200"
-      :class="{ 'bg-slate-200': dropdownOpen }"
+      class="w-8 h-8 flex items-center justify-center p-1 text-gray-600 dark:text-gray-400 border-[1px] border-gray-200 rounded-md focus:outline-none hover:bg-slate-200 dark:hover:bg-[#282828] dark:border-gray-500 dark:hover:border-gray-200"
+      :class="{ 'dark:bg-[#282828]': dropdownOpen }"
       aria-haspopup="true"
       @click.prevent="dropdownOpen = !dropdownOpen"
       :aria-expanded="dropdownOpen"
@@ -59,16 +59,16 @@ onUnmounted(() => {
     >
       <div
         v-show="dropdownOpen"
-        class="origin-top-right z-10 absolute top-full -mr-48 sm:mr-0 min-w-80 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 py-1.5 rounded shadow-lg overflow-hidden mt-1"
+        class="origin-top-right z-10 absolute top-full -mr-48 sm:mr-0 min-w-80 bg-white dark:bg-[#282828] py-1.5 rounded shadow-lg overflow-hidden mt-1"
         :class="align === 'right' ? 'right-0' : 'left-0'"
       >
         <div
-          class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase pt-1.5 pb-2 px-4"
+          class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase pt-1.5 pb-2 px-4"
         >
           Notifications
         </div>
         <ul ref="dropdown" @focusin="dropdownOpen = true" @focusout="dropdownOpen = false">
-          <li class="border-b border-slate-200 dark:border-slate-700 last:border-0">
+          <li class="border-b border-gray-200 dark:border-gray-700 last:border-0">
             <router-link
               class="block py-2 px-4 hover:bg-slate-50 dark:hover:bg-slate-700/20"
               to="#0"

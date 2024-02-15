@@ -100,8 +100,10 @@ const HandleSearch = (search: string) => {
 </script>
 
 <template>
-  <div class="bg-white relative dark:bg-slate-800 rounded-md">
-    <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-700">
+  <div class="bg-white relative dark:bg-[#0F0F0F] dark:text-white dark:border-gray-700 rounded-md">
+    <div
+      class="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 px-3 py-4"
+    >
       <SearchForm @search="HandleSearch" />
       <div class="flex items-center justify-end text-sm font-semibold">
         <!-- Radio Buttons -->
@@ -113,7 +115,7 @@ const HandleSearch = (search: string) => {
       <el-row>
         <el-col :span="6" v-for="(u, index) in filterItem" :key="index" class="mx-6 my-3">
           <el-card
-            class="w-full min-w-80 px-2 mx-6 sm:w-1/2 xl:w-1/3 border border-slate-200 dark:border-slate-700 dark:bg-slate-800"
+            class="w-full min-w-80 px-2 mx-6 sm:w-1/2 xl:w-1/3 border border-gray-300 dark:border-gray-700 dark:bg-[#0F0F0F] dark:text-gray-300 hover:shadow-xl"
             shadow="hover"
           >
             <div class="flex items-center">

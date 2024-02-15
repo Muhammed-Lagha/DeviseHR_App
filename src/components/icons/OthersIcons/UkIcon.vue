@@ -1,5 +1,9 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-3 h-3 fill-current text-indigo-300 dark:text-indigo-500 shrink-0 mr-2"
+    viewBox="0 0 512 512"
+  >
     <mask id="circleFlagsUk0"><circle cx="256" cy="256" r="256" fill="#fff"></circle></mask>
     <g mask="url(#circleFlagsUk0)">
       <path

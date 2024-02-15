@@ -1,74 +1,99 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-const selectedTab = ref(1)
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <div class="w-full bg-white dark:bg-slate-800">
-    <!-- Tabs -->
-    <div class="pb-2">
-      <ul
-        class="p-0 m-0 flex list-none tablist text-neutral-700 transition-colors self-end overflow-x-hidden border-b border-neutral-400"
-      >
-        <li>
-          <button
-            @click="selectedTab = 1"
-            class="flex py-2 font-sans text-base bg-transparent cursor-pointer lg:shrink-0 lg:basis-auto hover:text-indigo-600 hover:fill-indigo-600 transition-colors min-w-[80px] justify-center px-4"
-            :class="{
-              'border-b-4 border-indigo-500 fill-indigo-500 text-indigo-700 font-semibold ':
-                selectedTab === 1
-            }"
+  <div class="py-4 w-full max-w-7xl min-w-80 flex m-6 rounded-xl bg-white dark:bg-slate-800">
+    <ul
+      class="relative w-fit flex flex-col border-r border-#f0f0f0 dark:border-gray-500 list-none pr-8 gap-2"
+    >
+      <li>
+        <button
+          @click="() => (selectedTab = 1)"
+          class="relative flex w-36 cursor-pointer text-sm font-semibold text-[#9D9D9D] dark:text-white text-left rounded-lg justify-start items-center p-3 gap-2 transition-all"
+          :class="{
+            'text-[#fff] dark:text-[#3e3e3e] bg-[#3e3e3e] dark:bg-[#f0f0f0]': selectedTab === 1,
+            'hover:text-[#fff] dark:hover:text-[#3e3e3e] hover:bg-[#3e3e3e] dark:hover:bg-[#f0f0f0]':
+              selectedTab !== 1
+          }"
+        >
+          <svg
+            class="w-10 h-10 stroke-[#9d9d9d] hover:text-white dark:text-white"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           >
-            <div class="flex items-center space-x-2"><span>Company Settings</span></div>
-          </button>
-        </li>
-        <li>
-          <button
-            @click="selectedTab = 2"
-            class="flex py-2 font-sans text-base bg-transparent cursor-pointer lg:shrink-0 lg:basis-auto hover:text-indigo-600 hover:fill-indigo-600 transition-colors min-w-[80px] justify-center px-4"
-            :class="{
-              'border-b-4 border-indigo-500 fill-indigo-500 text-indigo-700 font-semibold ':
-                selectedTab === 2
-            }"
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M3 21l18 0"></path>
+            <path d="M3 10l18 0"></path>
+            <path d="M5 6l7 -3l7 3"></path>
+            <path d="M4 10l0 11"></path>
+            <path d="M20 10l0 11"></path>
+            <path d="M8 14l0 3"></path>
+            <path d="M12 14l0 3"></path>
+            <path d="M16 14l0 3"></path>
+          </svg>
+          Company Settings
+        </button>
+      </li>
+      <li>
+        <button
+          @click="() => (selectedTab = 2)"
+          class="relative flex w-full cursor-pointer text-sm font-semibold text-[#9D9D9D] dark:text-white text-left rounded-lg justify-start items-center p-3 gap-2 transition-all"
+          :class="{
+            'text-[#fff] dark:text-[#3e3e3e] bg-[#3e3e3e] dark:bg-[#f0f0f0]': selectedTab === 2,
+            'hover:text-[#fff] dark:hover:text-[#3e3e3e] hover:bg-[#3e3e3e] dark:hover:bg-[#f0f0f0]':
+              selectedTab !== 2
+          }"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-8 h-8 stroke-[#9d9d9d] hover:text-white dark:text-white"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           >
-            <div class="flex items-center space-x-2"><span>Users Settings</span></div>
-          </button>
-        </li>
-        <li>
-          <button
-            @click="selectedTab = 3"
-            class="flex py-2 font-sans text-base bg-transparent cursor-pointer lg:shrink-0 lg:basis-auto hover:text-indigo-600 hover:fill-indigo-600 transition-colors min-w-[80px] justify-center px-4"
-          >
-            <div class="flex items-center space-x-2"><span>Permissions</span></div>
-          </button>
-        </li>
-      </ul>
-    </div>
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M3 21v-4a4 4 0 1 1 4 4h-4"></path>
+            <path d="M21 3a16 16 0 0 0 -12.8 10.2"></path>
+            <path d="M21 3a16 16 0 0 1 -10.2 12.8"></path>
+            <path d="M10.6 9a9 9 0 0 1 4.4 4.4"></path>
+          </svg>
+          User Settings
+        </button>
+      </li>
+    </ul>
     <div class="overflow-x-hidden overflow-y-auto h-fit transition-all py-0 px-4">
       <section
         id="tab1-content"
-        class="p-5 mb-2 scroll-m-56 md:scroll-m-20 border-brand-500 text-sm min-h-fit min-w-fit overflow-x-auto transition-all"
+        class="p-5 mb-2 rounded-lg shadow-md border-2 scroll-m-56 md:scroll-m-20 border-brand-500 text-sm min-h-fit min-w-fit overflow-x-auto transition-all"
         v-show="selectedTab === 1"
       >
         <h2 class="flex justify-center text-xl font-semibold">Company settings</h2>
         <div>
-          <div class="py-10">
-            <div class="flex justify-between flex-col flex-wrap lg:flex-row opacity-100">
-              <div class="pt-5 pb-2 text-xl font-bold opacity-100">
-                <h3>Company name</h3>
-              </div>
-              <input
-                class="border rounded-lg p-4 mr-44 transition-colors ease-in-out cursor-pointer border-indigo-300 focus:border-indigo-500"
-                type="text"
-                value="Company Name"
-              />
-            </div>
+          <div class="flex items-center pt-5 pb-2 text-xl font-bold opacity-100">
+            <h3>Company name</h3>
           </div>
+          <input
+            class="flex border rounded-lg p-4 transition-colors ease-in-out cursor-pointer bg-primary-50"
+            type="text"
+            value="BrightHR company"
+          />
           <div class="py-10">
             <div class="flex items-center pt-5 pb-2 text-xl font-bold opacity-100">
               <h3>BrightBase</h3>
             </div>
-            <div class="flex flex-col flex-wrap justify-between lg:flex-row opacity-100">
+            <div
+              data-e2e="BrightBase"
+              data-testid="BrightBase"
+              class="flex flex-col flex-wrap justify-between lg:flex-row opacity-100"
+            >
               <div class="basis-full md:basis-[58%] md-max-w-[58%] pb-3 md:pb-0">
                 <p class="pb-3 md:pb-0">
                   Enable this setting to give your managers access to the BrightBase library of
@@ -96,7 +121,7 @@ const selectedTab = ref(1)
         </div>
       </section>
       <section
-        class="mb-2 scroll-m-56 md:scroll-m-20 border-brand-500 text-sm min-h-fit min-w-fit overflow-x-auto transition-all"
+        class="p-5 mb-2 rounded-lg shadow-md border-2 scroll-m-56 md:scroll-m-20 border-brand-500 text-sm min-h-fit min-w-fit overflow-x-auto transition-all"
         id="#tab2"
         v-show="selectedTab === 2"
       >

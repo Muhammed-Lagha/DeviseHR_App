@@ -1,5 +1,9 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-3 h-3 fill-current text-indigo-300 dark:text-indigo-500 shrink-0 mr-2"
+    viewBox="0 0 64 64"
+  >
     <path
       fill="#3e4347"
       d="M2 32c0 5.9 1.7 11.4 4.6 16h50.7c2.9-4.6 4.6-10.1 4.6-16s-1.7-11.4-4.6-16H6.6C3.7 20.6 2 26.1 2 32"

@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import LibyaIcon from '../icons/OthersIcons/LibyaIcon.vue'
+import UkIcon from '../icons/OthersIcons/UkIcon.vue'
 
 defineProps<{
   align?: string
@@ -43,11 +45,11 @@ onUnmounted(() => {
       @click.prevent="dropdownOpen = !dropdownOpen"
       :aria-expanded="dropdownOpen"
     >
-      <span class="sr-only">Info</span>
+      <span class="sr-only">Language</span>
       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24">
         <path
           class="fill-current text-gray-500 dark:text-gray-400"
-          d="M14.6 8.075q0-1.075-.712-1.725T12 5.7q-.725 0-1.312.313t-1.013.912q-.4.575-1.088.663T7.4 7.225q-.35-.325-.387-.8t.237-.9q.8-1.2 2.038-1.862T12 3q2.425 0 3.938 1.375t1.512 3.6q0 1.125-.475 2.025t-1.75 2.125q-.925.875-1.25 1.363T13.55 14.6q-.1.6-.513 1t-.987.4q-.575 0-.987-.387t-.413-.963q0-.975.425-1.787T12.5 11.15q1.275-1.125 1.688-1.737t.412-1.338M12 22q-.825 0-1.412-.587T10 20q0-.825.588-1.412T12 18q.825 0 1.413.588T14 20q0 .825-.587 1.413T12 22"
+          d="m12.87 15.07l-2.54-2.51l.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35C8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5l3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7l1.62-4.33L19.12 17z"
         />
       </svg>
     </button>
@@ -67,7 +69,7 @@ onUnmounted(() => {
         <div
           class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase pt-1.5 pb-2 px-4"
         >
-          Need help?
+          Language !
         </div>
         <ul ref="dropdown" @focusin="dropdownOpen = true" @focusout="dropdownOpen = false">
           <li>
@@ -76,14 +78,9 @@ onUnmounted(() => {
               to="#0"
               @click="dropdownOpen = false"
             >
-              <svg
-                class="w-3 h-3 fill-current text-indigo-300 dark:text-indigo-500 shrink-0 mr-2"
-                viewBox="0 0 12 12"
-              >
-                <rect y="3" width="12" height="9" rx="1" />
-                <path d="M2 0h8v2H2z" />
-              </svg>
-              <span>Documentation</span>
+              <LibyaIcon />
+
+              <span>Arabic</span>
             </router-link>
           </li>
           <li>
@@ -92,32 +89,9 @@ onUnmounted(() => {
               to="#0"
               @click="dropdownOpen = false"
             >
-              <svg
-                class="w-3 h-3 fill-current text-indigo-300 dark:text-indigo-500 shrink-0 mr-2"
-                viewBox="0 0 12 12"
-              >
-                <path
-                  d="M10.5 0h-9A1.5 1.5 0 000 1.5v9A1.5 1.5 0 001.5 12h9a1.5 1.5 0 001.5-1.5v-9A1.5 1.5 0 0010.5 0zM10 7L8.207 5.207l-3 3-1.414-1.414 3-3L5 2h5v5z"
-                />
-              </svg>
-              <span>Support Site</span>
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              class="font-medium text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center py-1 px-3"
-              to="#0"
-              @click="dropdownOpen = false"
-            >
-              <svg
-                class="w-3 h-3 fill-current text-indigo-300 dark:text-indigo-500 shrink-0 mr-2"
-                viewBox="0 0 12 12"
-              >
-                <path
-                  d="M11.854.146a.5.5 0 00-.525-.116l-11 4a.5.5 0 00-.015.934l4.8 1.921 1.921 4.8A.5.5 0 007.5 12h.008a.5.5 0 00.462-.329l4-11a.5.5 0 00-.116-.525z"
-                />
-              </svg>
-              <span>Contact us</span>
+              <UkIcon />
+
+              <span>English</span>
             </router-link>
           </li>
         </ul>
