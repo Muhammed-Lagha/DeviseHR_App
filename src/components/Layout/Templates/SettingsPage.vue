@@ -4,25 +4,32 @@ const selectedTab = ref(1)
 </script>
 
 <template>
-  <div class="w-full bg-white dark:bg-slate-800">
+  <div class="w-full bg-white dark:bg-[#0F0F0F]">
     <!-- Tabs -->
     <div class="pb-2">
       <ul
-        class="p-0 m-0 flex list-none tablist text-neutral-700 transition-colors self-end overflow-x-hidden border-b border-neutral-400"
+        class="p-0 m-0 flex list-none tablist text-neutral-700 dark:text-neutral-300 transition-colors self-end overflow-x-hidden border-b border-neutral-400"
       >
-        <li>
+        <li
+          :class="{
+            'border-b-2 border-indigo-500 fill-indigo-500 text-indigo-700': selectedTab === 1
+          }"
+        >
           <button
             @click="selectedTab = 1"
             class="flex py-2 font-sans text-base bg-transparent cursor-pointer lg:shrink-0 lg:basis-auto hover:text-indigo-600 hover:fill-indigo-600 transition-colors min-w-[80px] justify-center px-4"
             :class="{
-              'border-b-4 border-indigo-500 fill-indigo-500 text-indigo-700 font-semibold ':
-                selectedTab === 1
+              'border-indigo-500 fill-indigo-500 text-indigo-700 font-semibold ': selectedTab === 1
             }"
           >
             <div class="flex items-center space-x-2"><span>Company Settings</span></div>
           </button>
         </li>
-        <li>
+        <li
+          :class="{
+            'border-b-2 border-indigo-500 fill-indigo-500 text-indigo-700': selectedTab === 2
+          }"
+        >
           <button
             @click="selectedTab = 2"
             class="flex py-2 font-sans text-base bg-transparent cursor-pointer lg:shrink-0 lg:basis-auto hover:text-indigo-600 hover:fill-indigo-600 transition-colors min-w-[80px] justify-center px-4"
@@ -34,10 +41,18 @@ const selectedTab = ref(1)
             <div class="flex items-center space-x-2"><span>Users Settings</span></div>
           </button>
         </li>
-        <li>
+        <li
+          :class="{
+            'border-b-2 border-indigo-500 fill-indigo-500 text-indigo-700': selectedTab === 3
+          }"
+        >
           <button
             @click="selectedTab = 3"
             class="flex py-2 font-sans text-base bg-transparent cursor-pointer lg:shrink-0 lg:basis-auto hover:text-indigo-600 hover:fill-indigo-600 transition-colors min-w-[80px] justify-center px-4"
+            :class="{
+              'border-b-4 border-indigo-500 fill-indigo-500 text-indigo-700 font-semibold ':
+                selectedTab === 3
+            }"
           >
             <div class="flex items-center space-x-2"><span>Permissions</span></div>
           </button>
@@ -50,15 +65,19 @@ const selectedTab = ref(1)
         class="p-5 mb-2 scroll-m-56 md:scroll-m-20 border-brand-500 text-sm min-h-fit min-w-fit overflow-x-auto transition-all"
         v-show="selectedTab === 1"
       >
-        <h2 class="flex justify-center text-xl font-semibold">Company settings</h2>
-        <div>
+        <h2
+          class="flex justify-center text-neutral-700 dark:text-neutral-300 text-xl font-semibold"
+        >
+          Company settings
+        </h2>
+        <div class="text-neutral-700 dark:text-neutral-300">
           <div class="py-10">
             <div class="flex justify-between flex-col flex-wrap lg:flex-row opacity-100">
               <div class="pt-5 pb-2 text-xl font-bold opacity-100">
                 <h3>Company name</h3>
               </div>
               <input
-                class="border rounded-lg p-4 mr-44 transition-colors ease-in-out cursor-pointer border-indigo-300 focus:border-indigo-500"
+                class="border rounded-lg p-4 mr-44 transition-colors ease-in-out cursor-pointer bg-gray-100 dark:bg-gray-600 border-indigo-300 focus:border-indigo-500"
                 type="text"
                 value="Company Name"
               />
@@ -101,7 +120,7 @@ const selectedTab = ref(1)
         v-show="selectedTab === 2"
       >
         <h2 class="flex justify-center text-xl font-semibold">Employee settings</h2>
-        <div>
+        <div class="text-neutral-700 dark:text-neutral-300">
           <div class="flex items-center pt-5 pb-2 text-xl font-bold opacity-100">
             <h3>Employee status</h3>
           </div>

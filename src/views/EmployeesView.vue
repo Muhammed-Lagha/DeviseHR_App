@@ -5,7 +5,7 @@ import RenderEmployees from '@/components/Layout/EmployeesLayout/RenderEmployees
 
 <template>
   <AuthenticatedLayout>
-    <div class="container shadow-md rounded-md bg-white dark:bg-slate-800">
+    <div class="container rounded-md bg-white dark:bg-[#0F0F0F]">
       <RenderEmployees />
     </div>
   </AuthenticatedLayout>

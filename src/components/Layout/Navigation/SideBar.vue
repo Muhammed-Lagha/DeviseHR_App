@@ -87,8 +87,8 @@ watch(sidebarExpanded, () => {
                 <stop stop-color="#A5B4FC" offset="100%" />
               </linearGradient>
               <linearGradient x1="88.638%" y1="29.267%" x2="22.42%" y2="100%" id="logo-b">
-                <stop stop-color="#38BDF8" stop-opacity="0" offset="0%" />
-                <stop stop-color="#38BDF8" offset="100%" />
+                <stop stop-color="#33E0FF" stop-opacity="0" offset="0%" />
+                <stop stop-color="#99EDEE" offset="100%" />
               </linearGradient>
             </defs>
             <rect fill="#6366F1" width="32" height="32" rx="16" />
@@ -122,79 +122,192 @@ watch(sidebarExpanded, () => {
           </h3>
           <ul class="mt-3">
             <!-- Nav item -->
-            <li>
+            <li class="px-3 py-2 rounded-sm mb-0.5 last:mb-0">
               <router-link
-                class="relative px-3 py-4 flex items-center space-x-4"
+                class="relative flex flex-col items-center justify-center w-16 h-full lg:w-full"
                 to="/"
                 @click="sidebarExpanded ? $emit('close-sidebar') : null"
               >
-                <span class="inline-flex items-center justify-center w-6 h-6 text-slate-400">
+                <span class="flex flex-col items-center justify-center">
                   <svg
                     class="w-6 h-6"
-                    aria-hidden="true"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:cc="http://creativecommons.org/ns#"
+                    xmlns:dc="http://purl.org/dc/elements/1.1/"
+                    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                   >
-                    <path
-                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                    />
+                    <g transform="translate(0 -1028.4)">
+                      <rect fill="#c0392b" height="5.9999" width="3" x="17" y="1031.4" />
+                      <path
+                        d="m12 3.0312l-9 8.9688v1.812 5.376 1.812h1 8 8 1v-1.812-5.376-1.812l-9-8.9688z"
+                        fill="#bdc3c7"
+                        transform="translate(0 1028.4)"
+                      />
+                      <path d="m12 1032-9 8.9v1.9 0.1l9-9 9 9v-0.1-1.9l-9-8.9z" fill="#95a5a6" />
+                      <g>
+                        <path
+                          d="m12 1029.4-11.314 11.3 1.4145 1.4 9.8995-9.9 9.899 9.9 1.415-1.4-11.314-11.3z"
+                          fill="#e74c3c"
+                        />
+                        <path
+                          d="m14 9a2 2 0 1 1 -4 0 2 2 0 1 1 4 0z"
+                          fill="#3498db"
+                          transform="translate(0 1029.4)"
+                        />
+                        <rect fill="#e67e22" height="6" width="4" x="10" y="1043.4" />
+                        <path
+                          d="m12 17.5a0.5 0.5 0 1 1 -1 0 0.5 0.5 0 1 1 1 0z"
+                          fill="#d35400"
+                          transform="translate(1.5 1029.4)"
+                        />
+                        <path
+                          d="m12 1036.4c-1.105 0-2 0.9-2 2 0 0.1 0.021 0.3 0.062 0.5 0.222-0.9 1.006-1.5 1.938-1.5s1.716 0.6 1.938 1.5c0.041-0.2 0.062-0.4 0.062-0.5 0-1.1-0.895-2-2-2z"
+                          fill="#2980b9"
+                        />
+                        <path
+                          d="m12 17.5a0.5 0.5 0 1 1 -1 0 0.5 0.5 0 1 1 1 0z"
+                          fill="#f1c40f"
+                          transform="translate(1.5 1028.9)"
+                        />
+                        <rect fill="#d35400" height="1" width="4" x="10" y="1042.4" />
+                      </g>
+                    </g>
                   </svg>
-                  <span class="sr-only ml-4">Dashboard</span>
+                  <span
+                    class="justify-center text-[11px] text-center hidden pt-0 w-full no-underline active:no-underline focus:no-underline leading-3 mt-2 lg:flex text-white"
+                    >Home</span
+                  >
                 </span>
               </router-link>
             </li>
-            <li>
+            <li class="px-3 py-2 rounded-sm mb-0.5 last:mb-0">
               <router-link
-                class="relative px-3 py-4 flex items-center space-x-4"
+                class="relative flex flex-col items-center justify-center w-16 h-full lg:w-full"
                 to="/employees"
                 @click="sidebarExpanded ? $emit('close-sidebar') : null"
               >
-                <span class="inline-flex items-center justify-center w-6 h-6 text-slate-400">
+                <span class="flex flex-col items-center justify-center">
                   <svg
-                    class="w-6 h-6"
-                    aria-hidden="true"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+                    class="h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:cc="http://creativecommons.org/ns#"
+                    xmlns:dc="http://purl.org/dc/elements/1.1/"
+                    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                   >
-                    <path
-                      d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                    />
+                    <g transform="translate(0 -1028.4)">
+                      <g fill="#bdc3c7" transform="matrix(.77981 0 0 .78862 2.9634 174.84)">
+                        <path
+                          d="m17 4a5 5 0 1 1 -10 0 5 5 0 1 1 10 0z"
+                          transform="translate(6 1088.4)"
+                        />
+                        <path
+                          d="m18 1096.4c-1.277 0-2.494 0.2-3.594 0.7-2.885 1.3-4.9779 4-5.3435 7.3 0 1.1 0.8329 2 1.9375 2h14c1.105 0 1.938-0.9 1.938-2-0.366-3.3-2.459-6-5.344-7.3-1.1-0.5-2.317-0.7-3.594-0.7z"
+                        />
+                      </g>
+                      <g fill="#7f8c8d" transform="matrix(.77981 0 0 .78862 -7.0366 174.84)">
+                        <path
+                          d="m17 4a5 5 0 1 1 -10 0 5 5 0 1 1 10 0z"
+                          transform="translate(6 1088.4)"
+                        />
+                        <path
+                          d="m18 1096.4c-1.277 0-2.494 0.2-3.594 0.7-2.885 1.3-4.9779 4-5.3435 7.3 0 1.1 0.8329 2 1.9375 2h14c1.105 0 1.938-0.9 1.938-2-0.366-3.3-2.459-6-5.344-7.3-1.1-0.5-2.317-0.7-3.594-0.7z"
+                        />
+                      </g>
+                      <path
+                        d="m8.4062 1041.1c-2.8856 1.3-4.9781 4-5.3437 7.3 0 1.1 0.8329 2 1.9375 2h14c1.105 0 1.938-0.9 1.938-2-0.366-3.3-2.459-6-5.344-7.3-0.649 1.3-2.011 2.3-3.594 2.3s-2.9453-1-3.5938-2.3z"
+                        fill="#2c3e50"
+                      />
+                      <path
+                        d="m17 4a5 5 0 1 1 -10 0 5 5 0 1 1 10 0z"
+                        fill="#34495e"
+                        transform="translate(0 1031.4)"
+                      />
+                      <path
+                        d="m12 11c-1.277 0-2.4943 0.269-3.5938 0.75-2.8856 1.262-4.9781 3.997-5.3437 7.25 0 1.105 0.8329 2 1.9375 2h14c1.105 0 1.938-0.895 1.938-2-0.366-3.253-2.459-5.988-5.344-7.25-1.1-0.481-2.317-0.75-3.594-0.75z"
+                        fill="#34495e"
+                        transform="translate(0 1028.4)"
+                      />
+                    </g>
                   </svg>
-                  <span class="sr-only ml-4">Employees</span>
+                  <span
+                    class="justify-center text-[11px] text-center hidden pt-0 w-full no-underline active:no-underline focus:no-underline leading-3 mt-2 lg:flex text-white"
+                    >Employees</span
+                  >
                 </span>
               </router-link>
             </li>
-            <li>
+            <li class="px-3 py-2 rounded-sm mb-0.5 last:mb-0">
               <router-link
-                class="relative px-3 py-4 flex items-center space-x-4"
+                class="relative flex flex-col items-center justify-center w-16 h-full lg:w-full"
                 to="/calendar"
                 @click="sidebarExpanded ? $emit('close-sidebar') : null"
               >
-                <span class="inline-flex items-center justify-center w-6 h-6 text-slate-400">
+                <span class="flex flex-col items-center justify-center">
                   <svg
                     class="w-6 h-6"
-                    aria-hidden="true"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:cc="http://creativecommons.org/ns#"
+                    xmlns:dc="http://purl.org/dc/elements/1.1/"
+                    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                   >
-                    <path
-                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    />
+                    <g transform="translate(0 -1028.4)">
+                      <path
+                        d="m5 1032.4c-1.1046 0-2 0.9-2 2v14c0 1.1 0.8954 2 2 2h6 2 6c1.105 0 2-0.9 2-2v-14c0-1.1-0.895-2-2-2h-6-2-6z"
+                        fill="#bdc3c7"
+                      />
+                      <path
+                        d="m5 3c-1.1046 0-2 0.8954-2 2v14c0 1.105 0.8954 2 2 2h6 2 6c1.105 0 2-0.895 2-2v-14c0-1.1046-0.895-2-2-2h-6-2-6z"
+                        fill="#ecf0f1"
+                        transform="translate(0 1028.4)"
+                      />
+                      <path
+                        d="m5 1031.4c-1.1046 0-2 0.9-2 2v3h18v-3c0-1.1-0.895-2-2-2h-6-2-6z"
+                        fill="#e74c3c"
+                      />
+                      <path
+                        d="m7 5.5a1.5 1.5 0 1 1 -3 0 1.5 1.5 0 1 1 3 0z"
+                        fill="#c0392b"
+                        transform="translate(.5 1028.4)"
+                      />
+                      <path
+                        d="m6 1c-0.5523 0-1 0.4477-1 1v3c0 0.5523 0.4477 1 1 1s1-0.4477 1-1v-3c0-0.5523-0.4477-1-1-1z"
+                        fill="#bdc3c7"
+                        transform="translate(0 1028.4)"
+                      />
+                      <path
+                        d="m7 5.5a1.5 1.5 0 1 1 -3 0 1.5 1.5 0 1 1 3 0z"
+                        fill="#c0392b"
+                        transform="translate(12.5 1028.4)"
+                      />
+                      <g fill="#bdc3c7">
+                        <path
+                          d="m18 1029.4c-0.552 0-1 0.4-1 1v3c0 0.5 0.448 1 1 1s1-0.5 1-1v-3c0-0.6-0.448-1-1-1z"
+                        />
+                        <path
+                          d="m5 1039.4v2h2v-2h-2zm3 0v2h2v-2h-2zm3 0v2h2v-2h-2zm3 0v2h2v-2h-2zm3 0v2h2v-2h-2z"
+                        />
+                        <path
+                          d="m5 1042.4v2h2v-2h-2zm3 0v2h2v-2h-2zm3 0v2h2v-2h-2zm3 0v2h2v-2h-2zm3 0v2h2v-2h-2z"
+                        />
+                        <path
+                          d="m5 1045.4v2h2v-2h-2zm3 0v2h2v-2h-2zm3 0v2h2v-2h-2zm3 0v2h2v-2h-2zm3 0v2h2v-2h-2z"
+                        />
+                      </g>
+                      <rect
+                        fill="#c0392b"
+                        height="1"
+                        transform="translate(0 1028.4)"
+                        width="18"
+                        x="3"
+                        y="8"
+                      />
+                    </g>
                   </svg>
 
-                  <span class="sr-only ml-4">Calendar</span>
+                  <span
+                    class="justify-center text-[11px] text-center hidden pt-0 w-full no-underline active:no-underline focus:no-underline leading-3 mt-2 lg:flex text-white"
+                    >Calendar</span
+                  >
                 </span>
               </router-link>
             </li>

@@ -5,7 +5,7 @@ import SettingsPage from '@/components/Layout/Templates/SettingsPage.vue'
 
 <template>
   <AuthenticatedLayout>
-    <div class="flex items-center justify-center gap-8 w-full h-fit p-4">
+    <div class="flex items-center justify-center gap-8 w-full h-fit p-4 dark:bg-[#0F0F0F]">
       <SettingsPage />
     </div>
   </AuthenticatedLayout>
