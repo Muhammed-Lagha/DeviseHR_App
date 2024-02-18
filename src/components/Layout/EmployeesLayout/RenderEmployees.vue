@@ -111,11 +111,11 @@ const HandleSearch = (search: string) => {
       </div>
     </div>
     <!-- employees cards -->
-    <div class="flex flex-wrap mx-3">
-      <el-row>
-        <el-col :span="6" v-for="(u, index) in filterItem" :key="index" class="mx-6 my-3">
+    <div class="mt-4">
+      <div class="flex flex-wrap mx-6">
+        <div v-for="(u, index) in filterItem" :key="index" class="w-full px-2 m-2 sm:w-72 xl:w-72">
           <el-card
-            class="w-full min-w-80 px-2 mx-6 sm:w-1/2 xl:w-1/3 border border-gray-300 dark:border-gray-700 dark:bg-[#0F0F0F] dark:text-gray-300 hover:shadow-xl"
+            class="w-full min-w-72 border border-gray-300 dark:border-gray-700 dark:bg-[#0F0F0F] dark:text-gray-300 hover:shadow-xl"
             shadow="hover"
           >
             <div class="flex items-center">
@@ -152,8 +152,8 @@ const HandleSearch = (search: string) => {
               </el-button>
             </div>
           </el-card>
-        </el-col>
-      </el-row>
+        </div>
+      </div>
     </div>
   </div>
 </template>
