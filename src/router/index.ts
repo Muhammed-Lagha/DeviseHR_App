@@ -33,6 +33,15 @@ const router = createRouter({
       path: '/settings',
       name: 'Settings',
       component: SettingsView
+    },
+    {
+      path: '/Rotas&Shifts',
+      name: 'Rotas&Shifts',
+      component: () => import('../views/Rotas&ShiftsView.vue')
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: '/login'
     }
   ]
 })

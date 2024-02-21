@@ -42,8 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import { useDark } from '@vueuse/core'
-const isDark = useDark({
-  selector: 'html'
-})
+import { useDarkMode } from '@/Hooks/useDark'
+
+const { isDark } = useDarkMode()
 </script>
